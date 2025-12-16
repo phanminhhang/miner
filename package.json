@@ -1,7 +1,7 @@
 {
   "name": "render-miner",
   "version": "1.0.0",
-  "description": "Miner",
+  "description": "Simple Miner",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
