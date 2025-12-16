@@ -1,8 +1,8 @@
+# Dùng image chuẩn của Puppeteer (đã có sẵn Chrome đúng phiên bản)
 FROM ghcr.io/puppeteer/puppeteer:latest
 
+# Chuyển sang root để cài thư viện
 USER root
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 
 WORKDIR /usr/src/app
 
@@ -11,7 +11,8 @@ RUN npm install
 
 COPY . .
 
-USER node
+# Chuyển lại quyền cho user mặc định để chạy an toàn
+USER pptruser
 
 EXPOSE 3000
 CMD [ "node", "index.js" ]
